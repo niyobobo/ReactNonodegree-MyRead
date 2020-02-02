@@ -1,16 +1,37 @@
 import React from "react";
-import Book from "./Book";
+import { Link } from "react-router-dom";
+import BookShelf from "./BookShelf";
+import loader from "./icons/loader.svg";
+import { shelfCategories } from "./utils/categories";
 
-const Shelf = props => {
+const Shelf = ({ allBooks, loading, onChange }) => {
   return (
-    <div className="bookshelf">
-      <h2 className="bookshelf-title">Currently Reading</h2>
-      <div className="bookshelf-books">
-        <ol className="books-grid">
-          {[0, 1].map(item => (
-            <Book />
-          ))}
-        </ol>
+    <div>
+      <div className="list-books">
+        <div className="list-books-title">
+          <h1>MyReads</h1>
+        </div>
+        {loading ? (
+          <div>
+            <img className="loading" src={loader} alt="loader" />
+          </div>
+        ) : (
+          <div>
+            <div className="list-books-content">
+              {shelfCategories.map(category => (
+                <BookShelf
+                  onChange={onChange}
+                  key={category.value}
+                  type={category}
+                  books={allBooks.filter(book => book.shelf === category.value)}
+                />
+              ))}
+            </div>
+            <Link className="open-search" to={`/search`}>
+              Add a book
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -12,6 +12,31 @@ body, .app {
 
 /* main page */
 
+.loading {
+  width: 150px;
+  display: block;
+  margin: 30px auto 0;
+  animation: animate-loader infinite 1s linear;
+  -webkit-animation: animate-loader infinite 1s linear;
+}
+
+@keyframes animate-loader {
+  from {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+  }
+  to {
+    transform: rotate(1turn);
+    -webkit-transform: rotate(1turn);
+    -moz-transform: rotate(1turn);
+    -ms-transform: rotate(1turn);
+    -o-transform: rotate(1turn);
+  }
+}
+
 .list-books-title {
   padding: 10px 0;
   background: #2e7c31;
@@ -53,7 +78,7 @@ body, .app {
   bottom: 25px;
 }
 
-.open-search button {
+.open-search {
   display: block;
   width: 50px;
   height: 50px;
@@ -68,7 +93,7 @@ body, .app {
   outline: 0;
 }
 
-.open-search button:hover {
+.open-search:hover {
   background-color: rgb(0, 102, 0);
 }
 
@@ -138,8 +163,25 @@ button:active {
   text-align: left;
 }
 
+.books-grid .no-content {
+  color: #2e7c31;
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+.books-grid b {
+  color:red;
+  text-transform: uppercase;
+  font-style: italic;
+}
+
 .book {
   width: 140px;
+  margin-right: 20px;
+}
+
+.book:last-child{
+  margin-right: 0;
 }
 
 .book-title,

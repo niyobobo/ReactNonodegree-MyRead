@@ -1,19 +1,20 @@
 import React from "react";
+import { shelfCategories } from "./utils/categories";
 
-const FloatingButton = props => {
+const FloatingButton = ({ selected, handleChange }) => {
   return (
-    <div>
-      <div className="book-shelf-changer">
-        <select>
-          <option value="move" disabled>
-            Move to...
+    <div className="book-shelf-changer">
+      <select value={selected} onChange={handleChange}>
+        <option value="move" disabled>
+          Move to...
+        </option>
+        {shelfCategories.map(({ value, title }) => (
+          <option key={value} value={value}>
+            {title}
           </option>
-          <option value="currentlyReading">Currently Reading</option>
-          <option value="wantToRead">Want to Read</option>
-          <option value="read">Read</option>
-          <option value="none">None</option>
-        </select>
-      </div>
+        ))}
+        <option value="none">None</option>
+      </select>
     </div>
   );
 };
