@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BookShelf from "./BookShelf";
-import loader from "./icons/loader.svg";
 import { shelfCategories } from "./utils/categories";
+import Loader from "./component/Loader";
 
 const Shelf = ({ allBooks, loading, onChange }) => {
   return (
@@ -12,9 +12,7 @@ const Shelf = ({ allBooks, loading, onChange }) => {
           <h1>MyReads</h1>
         </div>
         {loading ? (
-          <div>
-            <img className="loading" src={loader} alt="loader" />
-          </div>
+          <Loader />
         ) : (
           <div>
             <div className="list-books-content">

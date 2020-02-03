@@ -8,7 +8,8 @@ import Shelf from "./Shelf";
 class BooksApp extends Component {
   state = {
     books: [],
-    loading: true
+    loading: true,
+    searchResults: []
   };
 
   componentDidMount() {
@@ -31,6 +32,16 @@ class BooksApp extends Component {
     }
   };
 
+  searchBooks = query => {
+    this.setState({ loading: true });
+    BooksAPI.search(query).then(searchResults =>
+      this.setState({
+        searchResults,
+        loading: false
+      })
+    );
+  };
+
   render() {
     return (
       <div className="app">
@@ -49,8 +60,10 @@ class BooksApp extends Component {
           path="/search"
           render={() => (
             <Search
+              loading={this.state.loading}
               onChange={this.updateBookShelf}
               onSearch={this.searchBooks}
+              searchResults={this.state.searchResults}
             />
           )}
         />

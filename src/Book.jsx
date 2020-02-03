@@ -10,7 +10,11 @@ const Book = ({ book, onChange }) => {
           style={{
             width: 128,
             height: 188,
-            backgroundImage: `url(${book.imageLinks.smallThumbnail})`
+            backgroundImage: `url(${
+              book.imageLinks
+                ? book.imageLinks.smallThumbnail
+                : book.previewLink
+            })`
           }}
         ></div>
         <FloatingButton
@@ -20,9 +24,11 @@ const Book = ({ book, onChange }) => {
       </div>
       <div className="book-title">{book.title}</div>
       <div className="book-authors">
-        {book.authors.map((author, index) => (
-          <span key={index}>{author}</span>
-        ))}
+        {book.authors ? (
+          book.authors.map((author, index) => <span key={index}>{author}</span>)
+        ) : (
+          <span>No author</span>
+        )}
       </div>
     </div>
   );
