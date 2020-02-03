@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import BookShelf from "./BookShelf";
-import { shelfCategories } from "./utils/categories";
-import Loader from "./component/Loader";
+import BookShelf from "../component/BookShelf";
+import { shelfCategories } from "../utils/categories";
+import Loader from "../component/Loader";
 
 const Shelf = ({ allBooks, loading, onChange }) => {
   return (

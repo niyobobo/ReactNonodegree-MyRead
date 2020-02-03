@@ -1,13 +1,16 @@
 import React, { Component } from "react";
-import Book from "./Book";
-import Loader from "./component/Loader";
-import SearchBar from "./component/SearchBar";
+import Book from "../component/Book";
+import Loader from "../component/Loader";
+import SearchBar from "../component/SearchBar";
 
 class Search extends Component {
   state = {
     query: ""
   };
 
+  /**
+   * handle search on when user provides a keyword.
+   */
   handleSearch = e => {
     const { value: query } = e.target;
     this.setState({ query });

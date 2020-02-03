@@ -1,5 +1,5 @@
 import React from "react";
-import { shelfCategories } from "./utils/categories";
+import { shelfCategories } from "../utils/categories";
 
 const FloatingButton = ({ selected, handleChange }) => {
   return (

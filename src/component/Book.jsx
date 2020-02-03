@@ -18,7 +18,7 @@ const Book = ({ book, onChange }) => {
           }}
         ></div>
         <FloatingButton
-          selected={book.shelf}
+          selected={book.shelf ? book.shelf : "none"}
           handleChange={e => onChange(book, e.target.value)}
         />
       </div>
