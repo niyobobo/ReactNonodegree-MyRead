@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { shelfCategories } from "../utils/categories";
 
 const FloatingButton = ({ selected, handleChange }) => {
@@ -17,6 +18,11 @@ const FloatingButton = ({ selected, handleChange }) => {
       </select>
     </div>
   );
+};
+
+FloatingButton.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+  selected: PropTypes.string.isRequired
 };
 
 export default FloatingButton;

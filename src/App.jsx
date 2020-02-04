@@ -12,12 +12,18 @@ class BooksApp extends Component {
     searchResults: []
   };
 
+  /**
+   * @description Life cycle method to that perform certain action
+   *              after a component mounted to the DOM
+   *
+   * TASK: Fetch list of books from API
+   */
   componentDidMount() {
     this.getBooks();
   }
 
   /**
-   * Get all books and update state
+   * @description Get all books and update state
    */
   getBooks = () => {
     BooksAPI.getAll().then(books =>
@@ -29,9 +35,10 @@ class BooksApp extends Component {
   };
 
   /**
-   * Updating shelf when select option changed
-   * @param book Book to be updated
-   * @param shelf new shelf where book will be located
+   * @description Updating shelf when select option changed
+   * @param { object } book Book to be updated
+   * @param { string } shelf new shelf where book will be located
+   * @return { object } update the state with new data.
    */
   updateBookShelf = (book, shelf) => {
     if (shelf !== "none") {
@@ -46,10 +53,11 @@ class BooksApp extends Component {
   };
 
   /**
-   * Verify if update comes from search page and add new book
-   * into the state.
-   * @param book Book to be updated
-   * @param shelf new shelf where the book will be located
+   * @description Verify if update comes from search page and add new book
+   *              into the state.
+   * @param { object } book a book to be updated
+   * @param { string } shelf new shelf where the book will be located
+   * @returns { object } updated state if request comes from search page
    */
   verifyFromSearch = (book, shelf) => {
     const { books } = this.state;
@@ -61,8 +69,8 @@ class BooksApp extends Component {
   };
 
   /**
-   * Search books based on user input query
-   * @param query user provided search keyword
+   * @description Search books based on user input query
+   * @param { string } query user provided search keyword
    */
   searchBooks = query => {
     this.setState({ loading: true });
@@ -75,10 +83,10 @@ class BooksApp extends Component {
   };
 
   /**
-   * Merge two arrays in order to get a current shelf of a book which
-   * is shown on the main page
-   * @param searchResults Array of search result
-   * @return Array    An updated array with each book and its current shelf
+   * @description Merge two arrays in order to get a current shelf of a book which
+   *              is shown on the main page
+   * @param { Array } searchResults search result
+   * @return { Array } An updated array with each book and its current shelf
    */
   updateSearchResult = results => {
     const { books } = this.state;

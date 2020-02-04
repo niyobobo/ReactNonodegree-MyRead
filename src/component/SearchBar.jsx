@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { DebounceInput } from "react-debounce-input";
 
@@ -20,6 +21,12 @@ const SearchBar = ({ backTo, onInputChange, inputValue }) => {
       </div>
     </div>
   );
+};
+
+SearchBar.propTypes = {
+  onInputChange: PropTypes.func.isRequired,
+  backTo: PropTypes.string.isRequired,
+  inputValue: PropTypes.string.isRequired
 };
 
 export default SearchBar;

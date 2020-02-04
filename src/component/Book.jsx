@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import FloatingButton from "./FloatingButton";
 
 const Book = ({ book, onChange }) => {
@@ -32,6 +33,11 @@ const Book = ({ book, onChange }) => {
       </div>
     </div>
   );
+};
+
+Book.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  book: PropTypes.object.isRequired
 };
 
 export default Book;
